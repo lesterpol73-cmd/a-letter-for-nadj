@@ -1,0 +1,520 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>for my nadj ♡</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Georgia, serif;
+    color: #a45d75;
+    overflow-x: hidden;
+}
+
+.page {
+    min-height: 100vh;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    padding: 25px;
+}
+
+.page.active {
+    display: flex;
+    animation: fade 1s ease;
+}
+
+@keyframes fade {
+    from { opacity: 0; transform: translateY(15px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* FIRST PAGE */
+
+#page1 {
+    background: linear-gradient(135deg,#ffe4ec,#fff7f5);
+}
+
+.small {
+    letter-spacing: 3px;
+    font-size: 12px;
+    margin-bottom: 25px;
+}
+
+h1 {
+    margin-bottom: 15px;
+}
+
+.envelope {
+    width: 260px;
+    height: 170px;
+    background: #d88ba3;
+    position: relative;
+    margin: 45px 0;
+    cursor: pointer;
+    border-radius: 5px;
+    box-shadow: 0 12px 30px #b96e8433;
+}
+
+.flap {
+    position: absolute;
+    inset: 0;
+    background: #edb2c3;
+    clip-path: polygon(0 0,100% 0,50% 60%);
+    transform-origin: top;
+    transition: transform .8s;
+    z-index: 3;
+}
+
+.envelope.open .flap {
+    transform: rotateX(180deg);
+}
+
+.front {
+    position: absolute;
+    inset: 0;
+    background: #c87992;
+    clip-path: polygon(0 100%,0 0,50% 55%,100% 0,100% 100%);
+    z-index: 2;
+}
+
+.seal {
+    position: absolute;
+    top: 65px;
+    left: 108px;
+    color: white;
+    font-size: 40px;
+    z-index: 4;
+    transition: opacity .3s;
+}
+
+.envelope.open .seal {
+    opacity: 0;
+}
+
+.hint {
+    animation: pulse 1.5s infinite;
+    font-size: 13px;
+}
+
+@keyframes pulse {
+    50% { opacity: .4; }
+}
+
+/* SECOND PAGE */
+
+#page2 {
+    background: linear-gradient(135deg,#fff0f3,#ffe3eb);
+}
+
+.letter {
+    background: #fffaf5;
+    max-width: 650px;
+    width: 100%;
+    padding: 35px 25px;
+    border-radius: 10px;
+    box-shadow: 0 10px 35px #b56e8133;
+    text-align: left;
+    line-height: 1.9;
+    font-size: 15px;
+    color: #805263;
+}
+
+.letter h2 {
+    text-align: center;
+    margin-bottom: 25px;
+    color: #bd718b;
+}
+
+.letter p {
+    margin-bottom: 18px;
+}
+
+.signature {
+    text-align: center;
+    margin-top: 25px;
+    font-size: 20px;
+    color: #bd718b;
+}
+
+/* BUTTONS */
+
+button {
+    border: none;
+    background: #c87891;
+    color: white;
+    padding: 13px 28px;
+    border-radius: 30px;
+    margin-top: 25px;
+    cursor: pointer;
+    font-size: 14px;
+    font-family: Georgia, serif;
+}
+
+button:hover {
+    background: #a95b76;
+}
+
+/* FINAL PAGE */
+
+#page3 {
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(
+        to bottom,
+        #ffe8ef,
+        #fbd4e2,
+        #e9c4d6
+    );
+}
+
+.final-content {
+    position: relative;
+    z-index: 10;
+    background: #fffaf0e8;
+    padding: 35px 25px;
+    border-radius: 20px;
+    max-width: 440px;
+    width: 100%;
+    box-shadow: 0 10px 35px #a35f7722;
+}
+
+.final-content h1 {
+    color: #ad617b;
+}
+
+.final-content p {
+    line-height: 1.9;
+    margin-top: 15px;
+}
+
+/* FLOWERS */
+
+.flower {
+    position: absolute;
+    bottom: 0;
+    width: 75px;
+    height: 190px;
+    transform-origin: bottom;
+    animation: grow 2s ease-out forwards,
+               sway 4s ease-in-out infinite alternate;
+}
+
+.petal {
+    position: absolute;
+    width: 25px;
+    height: 38px;
+    background: #ff9fbd;
+    border-radius: 50%;
+    left: 25px;
+    top: 0;
+    transform-origin: 50% 37px;
+}
+
+.petal:nth-child(1) { transform: rotate(0deg); }
+.petal:nth-child(2) { transform: rotate(60deg); }
+.petal:nth-child(3) { transform: rotate(120deg); }
+.petal:nth-child(4) { transform: rotate(180deg); }
+.petal:nth-child(5) { transform: rotate(240deg); }
+.petal:nth-child(6) { transform: rotate(300deg); }
+
+.center {
+    position: absolute;
+    width: 19px;
+    height: 19px;
+    background: #ffdf82;
+    border-radius: 50%;
+    top: 28px;
+    left: 28px;
+    z-index: 2;
+}
+
+.stem {
+    position: absolute;
+    width: 4px;
+    height: 130px;
+    background: #83a77c;
+    top: 65px;
+    left: 36px;
+    z-index: -1;
+}
+
+.f1 { left: 5%; animation-delay: .2s; }
+.f2 { left: 25%; animation-delay: .7s; }
+.f3 { left: 70%; animation-delay: .4s; }
+.f4 { left: 88%; animation-delay: 1s; }
+
+.f2 .petal, .f4 .petal {
+    background: #e6a5d4;
+}
+
+.f3 .petal {
+    background: #fff1a6;
+}
+
+@keyframes grow {
+    from { transform: scale(0); }
+    to { transform: scale(1); }
+}
+
+@keyframes sway {
+    from { margin-left: -8px; }
+    to { margin-left: 8px; }
+}
+
+/* FLOATING HEARTS */
+
+.heart {
+    position: fixed;
+    bottom: -20px;
+    font-size: 20px;
+    animation: float 7s linear forwards;
+    opacity: .6;
+    pointer-events: none;
+    z-index: 5;
+}
+
+@keyframes float {
+    to {
+        transform: translateY(-110vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+@media(max-width:500px) {
+    .letter {
+        padding: 25px 20px;
+        font-size: 14px;
+    }
+
+    .final-content {
+        padding: 25px 18px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- BACKGROUND MUSIC -->
+<audio id="music" loop>
+    <source src="music.mp3" type="audio/mpeg">
+</audio>
+
+<!-- PAGE 1: ENVELOPE -->
+
+<section class="page active" id="page1">
+
+    <div class="small">A LITTLE SOMETHING FOR YOU</div>
+
+    <h1>hi, my nadj! ♡</h1>
+
+    <p>i have something to tell you...</p>
+
+    <div class="envelope" id="envelope"
+         onclick="openLetter()">
+
+        <div class="flap"></div>
+        <div class="front"></div>
+        <div class="seal">♥</div>
+
+    </div>
+
+    <div class="hint">tap the envelope to open ♡</div>
+
+</section>
+
+<!-- PAGE 2: LOVE LETTER -->
+
+<section class="page" id="page2">
+
+    <div class="letter">
+
+        <h2>♡ a letter for you ♡</h2>
+
+        <p>
+        hi, baby! maybe it's time na, no? gustong-gusto talaga kita,
+        and i think it's time na rin to take a step further and start
+        something new between us. hindi naman kita minamadali, and i
+        don't want you to feel pressured about anything. it's just
+        that ayoko na rin kasing manatili lang tayo sa ganitong setup,
+        knowing na there's something more that i genuinely want to
+        have with you.
+        </p>
+
+        <p>
+        matagal ko na rin itong pinag-iisipan, and i guess this is
+        the right time para sabihin sa'yo kung ano talaga yung
+        intentions ko. i want to get to know you more, discover the
+        little things about you, and make you feel na someone is
+        willing to put in the effort just to make you feel special.
+        gusto kitang ligawan nang maayos, not just through sweet
+        words but also through my actions. i want to show you how
+        genuine my feelings are and how serious i am about you.
+        </p>
+
+        <p>
+        i know naman na hindi basta-basta ang panliligaw. it takes
+        time, patience, effort, and understanding, and i'm willing
+        to give you all of that. hindi kita pipilitin na sagutin agad
+        ako, and i want you to take your time. i want everything to
+        happen naturally, without pressure or rushing things.
+        your feelings matter to me, too, and i want you to be
+        comfortable with whatever decision you make.
+        </p>
+
+        <p>
+        so, mahal, i guess this is me finally taking a chance and
+        being honest about what i want. gusto kitang bigyan ng chance
+        na makita kung gaano ako ka-seryoso sa'yo. i want to pursue
+        you and make you feel na you're someone worth choosing
+        every single day.
+        </p>
+
+        <div class="signature">
+            can i court you, my nadj? ♡
+            <br>
+            <small>with love, always.</small>
+        </div>
+
+    </div>
+
+    <button onclick="showPage('page3')">
+        one more thing for you ♡
+    </button>
+
+</section>
+
+<!-- PAGE 3: FLOWER GARDEN -->
+
+<section class="page" id="page3">
+
+    <div class="flower f1">
+        <i class="petal"></i><i class="petal"></i>
+        <i class="petal"></i><i class="petal"></i>
+        <i class="petal"></i><i class="petal"></i>
+        <i class="center"></i><i class="stem"></i>
+    </div>
+
+    <div class="flower f2">
+        <i class="petal"></i><i class="petal"></i>
+        <i class="petal"></i><i class="petal"></i>
+        <i class="petal"></i><i class="petal"></i>
+        <i class="center"></i><i class="stem"></i>
+    </div>
+
+    <div class="flower f3">
+        <i class="petal"></i><i class="petal"></i>
+        <i class="petal"></i><i class="petal"></i>
+        <i class="petal"></i><i class="petal"></i>
+        <i class="center"></i><i class="stem"></i>
+    </div>
+
+    <div class="flower f4">
+        <i class="petal"></i><i class="petal"></i>
+        <i class="petal"></i><i class="petal"></i>
+        <i class="petal"></i><i class="petal"></i>
+        <i class="center"></i><i class="stem"></i>
+    </div>
+
+    <div class="final-content">
+
+        <h1>for you, my nadj 🌷</h1>
+
+        <p>
+        if i could give you flowers every day,
+        i would.
+        </p>
+
+        <p>
+        but for now, here's a little garden
+        to remind you how special you are to me.
+        </p>
+
+        <p>
+        i hope this is the beginning of something
+        beautiful between us.
+        </p>
+
+        <p style="font-size:25px;">♡</p>
+
+        <p>
+        always remember that you're someone
+        worth making an effort for.
+        </p>
+
+        <button onclick="showPage('page1')">
+            read it again ♡
+        </button>
+
+    </div>
+
+</section>
+
+<script>
+
+let opened = false;
+
+function showPage(id) {
+    document.querySelectorAll('.page').forEach(page => {
+        page.classList.remove('active');
+    });
+
+    document.getElementById(id).classList.add('active');
+
+    window.scrollTo(0, 0);
+}
+
+function openLetter() {
+
+    if (opened) return;
+    opened = true;
+
+    const envelope = document.getElementById('envelope');
+    envelope.classList.add('open');
+
+    const music = document.getElementById('music');
+    music.volume = 0.5;
+
+    music.play().catch(() => {
+        alert("please tap the envelope again to play the music ♡");
+    });
+
+    setTimeout(() => {
+        showPage('page2');
+    }, 1000);
+}
+
+function createHeart() {
+
+    const heart = document.createElement('div');
+
+    heart.className = 'heart';
+    heart.innerHTML = '♡';
+
+    heart.style.left = Math.random() * 100 + 'vw';
+
+    heart.style.animationDuration =
+        (5 + Math.random() * 5) + 's';
+
+    document.body.appendChild(heart);
+
+    setTimeout(() => heart.remove(), 10000);
+}
+
+setInterval(createHeart, 900);
+
+</script>
+
+</body>
+</html>
